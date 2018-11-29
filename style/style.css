@@ -93,7 +93,7 @@ p {
 	font-weight: bold;
 }
 
-@media only screen and (max-width: 750px) and (min-height: 736px) {
+@media only screen and (max-width: 750px) and (min-height: 400px) {
 	.post {
 		max-width: 80%;
 		position: relative;
@@ -103,20 +103,21 @@ p {
 		min-height: 25%;
 		margin-top: 15%;
 		z-index: 2;
+		transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 	}
 	.menuitem {
+		pointer-events: none;
 		text-align: center;
 		top: 0%;
-		font-size: 11px;
-		display: none;
-	}
-	.menuitem:hover {
-		display: inline;
+		font-size: 0px;
 	}
 	.sidebar:hover {
 		min-width: 50%;
 		border: 1px solid var(--fg);
-		z-index: 2;
+	}
+	.sidebar:hover > .menuitem a {
+		pointer-events: auto;
+		font-size: 11px;
 	}
 }
 
