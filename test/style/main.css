@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Raleway:400,700');
+
+body {
+	background-color: #424242;
+}
+
+h1 {
+	font-family: Oswald, Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+.main {
+	display: inline-table;
+	height: 300px;
+	width: 300px;
+	color: white;
+	font-family: Raleway, Arial, sans-serif;
+	padding: 0 1em;
+	border: 2px solid white;
+	line-height: 0.5em;
+}
+
+.darkblue {
+		background-color: darkblue;
+}
+.mittelblau {
+	background-color: #0000CC;
+}
+
+.zitronengelb {
+	color: #FFFF00;
+}
+
+.yellow {
+	background-color: yellow;
+	color: black;
+	border: 2px solid black;
+	transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.yellow:hover  {
+	background-color:black;
+	color: yellow;
+	border: 2px solid white;
+}
+
+.shadow {
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.red {
+	background-color: red;
+}
+
+.redfont {
+	color: red;
+}
