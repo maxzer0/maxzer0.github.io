@@ -1,0 +1,35 @@
+* {
+	font-family: 'px437_vga_squarepxregular';
+	font-size: 24px;
+	background-color: #000;
+	color: #999;
+	background-image: url('tux.png');
+	background-attachment: fixed;
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	line-height: 5px;
+	}
+	
+.blink_me {
+  animation: blinker 1s step-start infinite;
+}
+.blink:after {
+	content: "_";
+	animation: blinker 1s step-start infinite;
+}
+#t2 {
+	display: none;
+}
+
+#t3 {
+	display: none;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#error {
+	display: none;
+}

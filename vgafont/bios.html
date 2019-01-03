@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<body>
+	<head>
+		<title>BIOS</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="https://maxzer0.github.io/vgafont/stylesheet.css"/>
+
+	</head>
+	<div id="keyy">
+		<p id="1">Booting BIOS....</p>
+		<p id="t2">BIOS Settings not found....</p>
+		<p id="t3">Press F2 to enter Setup...</p>
+		<p id="error">Error: 0x00045fc RAM not syncronized!</p>
+	</div>
+	<script>
+		function myFunction() {
+			document.getElementById("error").style.display = "block";
+			document.getElementById('t3').classList.remove("blink");
+			document.getElementById('error').classList.add("blink");
+		}
+		document.body.addEventListener ('keydown', function (event) {
+			if (event.which == 113) {
+			myFunction();
+			}
+		})
+		setTimeout(function(){
+		document.getElementById('1').style.display = "none";
+		document.getElementById('t2').style.display = "block";
+		document.getElementById('t3').classList.add("blink");
+		setTimeout(function() {
+			document.getElementById('t3').style.display = "block";
+			;}, 250);
+		},1000);
+	</script>
+</body>
