@@ -1,0 +1,1384 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Club50&#174; - serious_business</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        /* === GENERAL === */
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, Monospace;
+    white-space: pre-wrap;
+}
+
+.pre--multiline {
+    margin-top: 4px;
+    padding: 8px;
+    border: 2px solid;
+    border-radius: 5px;    
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.emoji {
+    width: 24px;
+    height: 24px;
+    margin: 0 1px;
+    vertical-align: middle;
+}
+
+.emoji--small {
+    width: 16px;
+    height: 16px;
+}
+
+.emoji--large {
+    width: 32px;
+    height: 32px;
+}
+
+.mention {
+    font-weight: 600;
+}
+
+/* === INFO === */
+
+.info {
+    display: flex;
+    max-width: 100%;
+    margin: 0 5px 10px 5px;    
+}
+
+.info__guild-icon-container {
+    flex: 0;
+}
+
+.info__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.info__metadata {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.info__guild-name {
+    font-size: 1.4em;
+}
+
+.info__channel-name {
+    font-size: 1.2em;
+}
+
+.info__channel-topic {
+    margin-top: 2px;
+}
+
+.info__channel-message-count {
+    margin-top: 2px;
+}
+
+.info__channel-date-range {
+    margin-top: 2px;
+}
+
+/* === CHATLOG === */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: flex;
+    margin: 0 10px;
+    padding: 15px 0;
+    border-top: 1px solid;
+}
+
+.chatlog__author-avatar-container {
+    flex: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    flex: 1;
+    min-width: 50%;
+    margin-left: 20px;
+}
+
+.chatlog__author-name {
+    font-size: 1em;
+}
+
+.chatlog__timestamp {
+    margin-left: 5px;
+    font-size: .75em;
+}
+
+.chatlog__content {
+    padding-top: 5px;
+    font-size: .9375em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 5px;
+    font-size: .8em;
+}
+
+.chatlog__attachment {
+    margin: 5px 0;
+}
+
+.chatlog__attachment-thumbnail {
+    max-width: 50%;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    max-width: 520px;
+    margin-top: 5px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 4px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    width: 100%;
+    display: flex;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.chatlog__embed-author-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: .875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 4px;
+    font-size: .875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 10px;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 4px;
+    font-size: .875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-size: .875em;
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 20px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 10px;
+}
+
+.chatlog__embed-image {    
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 10px;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-weight: 600;
+    font-size: .75em;
+}
+
+.chatlog__reactions {
+    display: flex;    
+}
+
+.chatlog__reaction {
+    margin: 6px 2px 2px 2px;
+    padding: 2px 6px 2px 2px;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-emoji {
+    margin-left: 3px;
+    vertical-align: middle;
+}
+
+.chatlog__reaction-count {
+    font-size: .875em;
+    vertical-align: middle;
+}
+/* === GENERAL === */
+
+body {
+    background-color: #36393e;
+    color: #ffffffb3;
+}
+
+a {
+    color: #0096cf;
+}
+
+.pre {
+    background-color: #2f3136;
+}
+
+.pre--multiline {
+    border-color: #282b30;
+    color: #839496;
+}
+
+.mention {
+    background-color: #738bd71a;
+    color: #7289da;
+}
+
+/* === INFO === */
+
+.info__guild-name {
+    color: #ffffff;
+}
+
+.info__channel-name {
+    color: #ffffff;
+}
+
+.info__channel-topic {
+    color: #ffffff;
+}
+
+/* === CHATLOG === */
+
+.chatlog__message-group {
+    border-color: #ffffff0a;
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: #ffffff33;
+}
+
+.chatlog__edited-timestamp {
+    color: #ffffff33;
+}
+
+.chatlog__embed-content-container {
+    background-color: #2e30364d;
+    border-color: #2e303699;
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: #ffffff99;
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: #ffffff99;
+}
+
+.chatlog__embed-footer {
+    color: #ffffff99;
+}
+
+.chatlog__reaction {
+    background-color: #ffffff0a;
+}
+
+.chatlog__reaction-count {
+    color: #ffffff4d;
+}
+    </style>
+</head>
+<body>
+    
+<div class="info">
+    <div class="info__guild-icon-container">
+        <img class="info__guild-icon" src="https://cdn.discordapp.com/icons/203211281979801600/9cfe8c9221b81439e2de31cf02e9f7a3.png" />
+    </div>
+    <div class="info__metadata">
+        <div class="info__guild-name">Club50&#174;</div>
+        <div class="info__channel-name">serious_business</div>
+        
+
+        <div class="info__channel-message-count">71 messages</div>
+        
+    </div>
+</div>
+
+<div class="chatlog">
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/222385804847218688/eb00f0280cb0a7878c662c492f338595.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Atomik#1984">Atomik</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:23 PM</span>
+
+                        <div class="chatlog__content">
+                            Hello <span class="mention">@everyone</span>, as you all have already noticed Club50 has basically died &#128367; <br /><br />We have thought about stuff we could do and continued recruiting in the past, but with new people joining and never even playing one game on here activity has come to a complete halt. That&#39;s not how it should be of course. But we don&#39;t have an answer to why it happened. So this new channel is for serious discussion about what to do with everyone on this server having a voice. <br /><br />What&#39;s your reason for not playing anymore? What&#39;s bothering you? Do you plan to come back? What can we do better / change in here?
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/423948965482856450/4968d80f1c052703dbb1e5468e2455ad.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="HenkVW#7237">HenkVW</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:25 PM</span>
+
+                        <div class="chatlog__content">
+                            <span class="mention" title="Fred#7809">@Fred</span> is TOSIC
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            but <span class="mention" title="N.N#3929">@N.N</span> more so
+
+                                <span class="chatlog__edited-timestamp" title="09-Feb-19 06:26 PM">(edited)</span>
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/176071277029621760/09e0327a57d91cd920dc5b7e7192366a.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="N.N#3929">N.N</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:26 PM</span>
+
+                        <div class="chatlog__content">
+                            good people tired of playing with bad people, good people play together, good people no come anymore, basically it
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/423948965482856450/4968d80f1c052703dbb1e5468e2455ad.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="HenkVW#7237">HenkVW</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:27 PM</span>
+
+                        <div class="chatlog__content">
+                            yeah take a hint <span class="mention" title="Fred#7809">@Fred</span>
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/218359185790730241/c0b899fa6e40e64e7583353852224e1a.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Neuroxian#6552">Neuroxian</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:27 PM</span>
+
+                        <div class="chatlog__content">
+                            What N.N. said. I&#39;ve been in club 50 for almost two years now I think? One reason was exams and second reason is exactly what N.N. said
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/277932223641157634/cccbeff53cd4e638c6176b78d2374881.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Nico [LEM]#9356">Nico [LEM]</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:28 PM</span>
+
+                        <div class="chatlog__content">
+                            I&#39;ve been on a break past month because my low trustfactor  made the game ridiculously frustrating, matching me with cheaters pretty much every game. I do plan to pick up the game again soon tho
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            7th Jan was last game I played with C50.. time flies
+
+                        </div>
+
+                        <div class="chatlog__attachment">
+                            <a href="https://cdn.discordapp.com/attachments/543843433278603283/543845669241225218/unknown.png">
+                                
+                                    <img class="chatlog__attachment-thumbnail" src="https://cdn.discordapp.com/attachments/543843433278603283/543845669241225218/unknown.png" />
+                            </a>
+                        </div>
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/177122365493346304/753234e1c316fac9ed3f0d0763416baf.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Fred#7809">Fred</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:35 PM</span>
+
+                        <div class="chatlog__content">
+                            Honestly, I think I felt the average investment of the discord grew, and I started playing more casually. People were getting increasingly mad over mistakes, and at each other
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/143781562993999872/4d623e6c7674b10e5aebd609e38e2b3c.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="TeRAFake#1003">TeRAFake</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:35 PM</span>
+
+                        <div class="chatlog__content">
+                            I&#39;ve not decided to play with c50 because we only que mostly mm
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            I mostly focus on faceit
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/150710971139227648/d8fe942ef0544005551b3c12aaaeee53.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="max&#39;07#5378">max&#39;07</span>
+                <span class="chatlog__timestamp">09-Feb-19 06:48 PM</span>
+
+                        <div class="chatlog__content">
+                            barely playing csgo outside of individual practice right now anyways
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            due to pc problems and real life issues i have to deal with
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            also i don&#39;t like playing mm alot
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/232855438335541251/fca7f6ac33b790d7ce591fbbea674511.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="eRa#9550">eRa</span>
+                <span class="chatlog__timestamp">09-Feb-19 07:08 PM</span>
+
+                        <div class="chatlog__content">
+                            Idc about teammates I just cba sitting alone in lfm for 2h when i dont have a lot of time
+
+                                <span class="chatlog__edited-timestamp" title="09-Feb-19 07:12 PM">(edited)</span>
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/199230093304922112/9fb7b5d62e667352cbe5abfc52a75c80.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="RaideN#9658">RaideN</span>
+                <span class="chatlog__timestamp">09-Feb-19 07:30 PM</span>
+
+                        <div class="chatlog__content">
+                            What happened? It seemed like it was looking up?
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            10 mans and shit every night? I have been very busy but now I have hols and more time, so will be on for games
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/211561840763863041/90b85a8a14b1b1b9d1f9078ef2f5f210.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Jordo76#1420">Jordo76</span>
+                <span class="chatlog__timestamp">09-Feb-19 07:31 PM</span>
+
+                        <div class="chatlog__content">
+                            Yeah before exams we had so many active people then when i came back there was no one
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/193813615105540098/b270463af712251c07a938dc8a32fc31.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="JensPanis#8434">JensPanis</span>
+                <span class="chatlog__timestamp">09-Feb-19 08:20 PM</span>
+
+                        <div class="chatlog__content">
+                            Good people stopped playing with worse people because they are casuals or not improving at all. And I think there is a lack of effort from all of us.
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/177122365493346304/753234e1c316fac9ed3f0d0763416baf.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Fred#7809">Fred</span>
+                <span class="chatlog__timestamp">09-Feb-19 09:21 PM</span>
+
+                        <div class="chatlog__content">
+                            Why casuals = bad?
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            I mean, I try when I play, but I don&#39;t practice aim or smokes anymore
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/222385804847218688/eb00f0280cb0a7878c662c492f338595.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Atomik#1984">Atomik</span>
+                <span class="chatlog__timestamp">09-Feb-19 09:35 PM</span>
+
+                        <div class="chatlog__content">
+                            because some people in here seem to only want to play completely serious anymore
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            and thats not wrong
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            but I don&#39;t see how we can get both under one roof
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            Club50 was created as a place to get non-braindead, communicating people so you could 5 stack together, but if some people only want to play with, I don&#39;t know, maybe Faceit 7+ people, then that makes the pool of people playing together smaller
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/193813615105540098/b270463af712251c07a938dc8a32fc31.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="JensPanis#8434">JensPanis</span>
+                <span class="chatlog__timestamp">09-Feb-19 10:05 PM</span>
+
+                        <div class="chatlog__content">
+                            The main problem is not that they have to be level 7+. The main problem is that the &quot;Casuals&quot; don&#39;t improve as players and that it is frustrating that people who put in 10+hours a week for practise have to play with people that don&#39;t know what they are doing because they are playing on a decent level but casualy
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/177122365493346304/753234e1c316fac9ed3f0d0763416baf.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Fred#7809">Fred</span>
+                <span class="chatlog__timestamp">09-Feb-19 10:08 PM</span>
+
+                        <div class="chatlog__content">
+                            Alright, IMO there&#39;s a huge difference from putting 10+ hours a week to &quot;Not know what they are doing&quot;
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            I don&#39;t believe anyone can expect of someone, who is not, say on a competitive team with them, to put in 10+ hours of practice a week. I mean, it&#39;s supposed to be adults only for this discord isn&#39;t it?
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            How many hours do people realistically have if they are adults, in an adult relationship?
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            If this is bachelors50, I&#39;m out from the getgo
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/423948965482856450/4968d80f1c052703dbb1e5468e2455ad.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="HenkVW#7237">HenkVW</span>
+                <span class="chatlog__timestamp">09-Feb-19 10:11 PM</span>
+
+                        <div class="chatlog__content">
+                            I&#39;ll tell u guys why nobody plays  in this shit anymore. Everyone takes the game too serious and toxicity ruins every game. Haven&#39;t played one losing game in c50 where no toxic or tilting behaviour was in play. Everyone is always friendly until you lose one game with them.
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/177122365493346304/753234e1c316fac9ed3f0d0763416baf.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Fred#7809">Fred</span>
+                <span class="chatlog__timestamp">09-Feb-19 10:11 PM</span>
+
+                        <div class="chatlog__content">
+                            What I&#39;m saying is, I think we should agree on what this is. If the definition of the group is what I&#39;m feeling from jos, I don&#39;t think I belong. I like most of you guys, and have mostly enjoyed playing games here, but I don&#39;t see myself coming back to practicing hardcore to play pugs.
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/193813615105540098/b270463af712251c07a938dc8a32fc31.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="JensPanis#8434">JensPanis</span>
+                <span class="chatlog__timestamp">09-Feb-19 10:18 PM</span>
+
+                        <div class="chatlog__content">
+                            No <span class="mention" title="Fred#7809">@Fred</span> that&#39;s totally not what it is. I understand that I and a few others are the odd ones out with no life playing the game way to much. And you don&#39;t have to practice 10 hours a week. But maybe a warm-up before every game and nade knowledge might help a lot.
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            It&#39;s not about practice for me but some people don&#39;t improve at all. Some people expect to get &quot;carried&quot;. Most of you find <span class="mention" title="Moqien#0842">@Moqien</span> a cunt. Let&#39;s be honest people think he is toxic and that he isn&#39;t fun to play with. But his knowledge of the game is way bigger than most of us me included and his strats are decent. But still in this &quot;non-brainded&quot; community we can&#39;t follow his strats and lose and when he writes a post about it he is suddenly toxic? I want people to write improment post about me but casuals don&#39;t care. They don&#39;t warm up. Boot the game. And play. They don&#39;t care about before the game or after.
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/232855438335541251/fca7f6ac33b790d7ce591fbbea674511.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="eRa#9550">eRa</span>
+                <span class="chatlog__timestamp">09-Feb-19 11:18 PM</span>
+
+                        <div class="chatlog__content">
+                            I bet some of u went out and joined a new discord didnt u
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/172729965073268736/eae2e7568cec0c332748aaedbd8e1352.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="oceandream#0759">oceandream</span>
+                <span class="chatlog__timestamp">09-Feb-19 11:21 PM</span>
+
+                        <div class="chatlog__content">
+                            I personally stopped playing because I personally got completely bored/burnt out of this game. played it for 3 years and It stopped being fun and forcing myself to play was just resulting in bad experience. I haven&#39;t played the game for some time. I started playing 1.6 with friends and I felt I had fun after a long time. cs go became like a chore or homework almost.
+
+                                <span class="chatlog__edited-timestamp" title="09-Feb-19 11:21 PM">(edited)</span>
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/176071277029621760/09e0327a57d91cd920dc5b7e7192366a.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="N.N#3929">N.N</span>
+                <span class="chatlog__timestamp">09-Feb-19 11:22 PM</span>
+
+                        <div class="chatlog__content">
+                            theres just clash of interests, some ppl play for fun some ppl take it serious, and thats where descrepancy is at
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/172729965073268736/eae2e7568cec0c332748aaedbd8e1352.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="oceandream#0759">oceandream</span>
+                <span class="chatlog__timestamp">09-Feb-19 11:29 PM</span>
+
+                        <div class="chatlog__content">
+                            as for community specific stuff there are three basic things I can say 1) people expect to find a game when they want to play and not type +4, +2  for hours on end and then leave so low volume of active players who are willing and able to play eventually kills the  motivation of people who actually want to play 2) toxic, negative environment, and constant bickering is a complete turn off for most people, atleast for me, if it starts to happen constantly it just becomes more mental torture and less fun. there is a balance between playing serious/ trying to improve and keeping a friendly, cool and fun environment, and it is a very fine balance, if it leans more towards the negative side, people will gradually stop queuing, especially when the bickering and complaining is unwarranted, unjustifiable or just plain incorrect and becomes more of a form of whining. 3) it is normal and natural for people to want to play with people who in their opinion are roughly similar skill level or better then them. If you will constantly que with a majority of people who you think are just letting the team down then eventually you will lose motivation too. I believe many people who leave or stop playing is because of a mixture of the above reasons.   its my 2 cents.
+
+                                <span class="chatlog__edited-timestamp" title="09-Feb-19 11:37 PM">(edited)</span>
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            i still believe it is one of the better communities out there. my overall experience was 20 times better then most of the other cs communities. It is just that it takes a lot of effort and it is a very delicate balancing act to keep communities like these alive for long periods.
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/199182952524021761/22715817950867bbc1e3a8ab1ce9f962.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Worzel#0001">Worzel</span>
+                <span class="chatlog__timestamp">09-Feb-19 11:39 PM</span>
+
+                        <div class="chatlog__content">
+                            I’m on a team and when I’m not doing team stuff I’m watching demos or aim training.  So busy most of the time, only able to play club50 games like 2-3 times a week and when I’m free there’s no one playing cuz it’s inactive af.
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            In other news, didn’t get grouped at my first LAN this weekend, was clearly down to the c50 spirit from <span class="mention" title="geo#0066">@geo</span> being admin and getting wallhacks on my pc on the DL kappa
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/203203384461754368/23ca7261ed2840a24f8308ac16d90fea.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="SyKo-#1337">SyKo-</span>
+                <span class="chatlog__timestamp">10-Feb-19 12:14 AM</span>
+
+                        <div class="chatlog__content">
+                            New discord? <img class="emoji" title=":hazedTroll:" src="https://cdn.discordapp.com/emojis/461520868997070850.png" />
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            For me most of my friends barely play CS:GO anymore, aside from the one game every 2 days and I moved with them to Rocket League/Apex Legends
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            Nothing really &#39;exciting&#39; CS can offer, maybe if I join a team I&#39;ll be more active regarding CS:GO just in general
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            Also, I&#39;ve been working on my social life outside of being online which has been great so far so I&#39;m just not that often on PC in general, especially before 10PM my time
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/192721158930432000/2d5127ed3c0c4d60974f497de36e3426.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="xd.#6702">xd.</span>
+                <span class="chatlog__timestamp">10-Feb-19 12:27 AM</span>
+
+                        <div class="chatlog__content">
+                            I just got really board of cs I need to get back at it and smash those c50 games
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            I love you guys and I don’t want to lose you
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/199230093304922112/9fb7b5d62e667352cbe5abfc52a75c80.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="RaideN#9658">RaideN</span>
+                <span class="chatlog__timestamp">10-Feb-19 12:45 AM</span>
+
+                        <div class="chatlog__content">
+                            it&#39;s bored
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/199182952524021761/22715817950867bbc1e3a8ab1ce9f962.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Worzel#0001">Worzel</span>
+                <span class="chatlog__timestamp">10-Feb-19 12:47 AM</span>
+
+                        <div class="chatlog__content">
+                            Grammar nazi raiden is on the case &lt;a:Eyes:415240584165457920&gt;
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/199230093304922112/9fb7b5d62e667352cbe5abfc52a75c80.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="RaideN#9658">RaideN</span>
+                <span class="chatlog__timestamp">10-Feb-19 12:48 AM</span>
+
+                        <div class="chatlog__content">
+                            For me personally, this isn&#39;t the only source of playing CS, which I still very much enjoy, I hang out here to get games with people I enjoy playing with and unfortunately that number used to be far higher back in the day. This used to be the only source for me to play CS with people that weren&#39;t random, and I used to be on a lot more but these days, it matters far more to me who is playing than their skill level. But the interest of those people has weaned and thus also my participation
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            Also if people played more faceit here I&#39;d be playing more
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/203203384461754368/23ca7261ed2840a24f8308ac16d90fea.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="SyKo-#1337">SyKo-</span>
+                <span class="chatlog__timestamp">10-Feb-19 01:10 AM</span>
+
+                        <div class="chatlog__content">
+                            +1 for faceit MM is dead
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/176071277029621760/09e0327a57d91cd920dc5b7e7192366a.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="N.N#3929">N.N</span>
+                <span class="chatlog__timestamp">10-Feb-19 01:15 AM</span>
+
+                        <div class="chatlog__content">
+                            i know u love me <span class="mention" title="RaideN#9658">@RaideN</span> sorry that im not playing
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/98468392003960832/8454f0e2dbd6255a30378d06b979b756.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Moqien#0842">Moqien</span>
+                <span class="chatlog__timestamp">10-Feb-19 01:19 AM</span>
+
+                        <div class="chatlog__content">
+                            people think they are finished and a &quot;good&quot; player when they reach a scertent lvl, evne tho thats barely avrg. and calling the game shit because they are shit.<br />I guess I was &quot;toxic&quot; early when people thought they know everythign even tho they litterally was max LE. Im all for people beeing able to grow as players, but if u want to just play headless DM and dont care about BASIC setups, push EVERYTIME u have the chance, peek EVERYTIME u have the oportunity to peek. well ok then, ull NEVER get better then.<br />I have a big personality, I know that, but I also know alot of people like to play with me :D<br />Lots of nice people here, most seem to just want to play for shits and giggle, glue down the W and forcebuy every round, wich is ok, but not for me &#128515;
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            1k houres in csgo? Ur barely scratching the surface of what the game is about. most people here need to get some self-knowledge, and see that the game isnt shit, ur just not playing enough to improve.<br />as said, this turned into a FFA DM place for most.<br />This whole is what just removed the <span class="mention">#improvement</span> cuzz everybody thougth they were better then everybody.<br />Constructive critizizm, well nobody give a fuck cuzz uknow? U know best!<br />I love the thought about <span class="mention">#improvement</span> and #post-match, its such a big opportunity to learn, and get insight on playstyles, and what could have been done, and what was done wich was completely utterly retarded.<br />U get 1tapped mid against an awp while crabbpeeking solo? and u yell &quot;WHAT A FUCKING NOOB&quot;.<br />Well guess what? ull win that battle 1/20 times. <br />Peace&amp;love to most of u guys ❤
+
+                        </div>
+
+
+
+                        <div class="chatlog__reactions">
+                                <div class="chatlog__reaction">
+                                    <span class="chatlog__reaction-emoji">
+                                            👍
+                                    </span>
+                                    <span class="chatlog__reaction-count">1</span>
+                                </div>
+                                <div class="chatlog__reaction">
+                                    <span class="chatlog__reaction-emoji">
+                                            💙
+                                    </span>
+                                    <span class="chatlog__reaction-count">2</span>
+                                </div>
+                        </div>
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/203203384461754368/23ca7261ed2840a24f8308ac16d90fea.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="SyKo-#1337">SyKo-</span>
+                <span class="chatlog__timestamp">10-Feb-19 02:20 AM</span>
+
+                        <div class="chatlog__content">
+                            We need to bring old C50 back <img class="emoji" title=":feelsGoodEnough:" src="https://cdn.discordapp.com/emojis/293582652030582805.png" />
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/193813615105540098/b270463af712251c07a938dc8a32fc31.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="JensPanis#8434">JensPanis</span>
+                <span class="chatlog__timestamp">10-Feb-19 02:37 AM</span>
+
+                        <div class="chatlog__content">
+                            <span class="mention" title="Moqien#0842">@Moqien</span> &#128077;
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/316614348883755009/4b5e6b1ee977209eae41db134e9a322d.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Dust#1239">Dust</span>
+                <span class="chatlog__timestamp">10-Feb-19 02:38 AM</span>
+
+                        <div class="chatlog__content">
+                            Imo playing casual doesnt mean that u need to think about what ur doing, running in the same awp 3 rounds in a row and being like &quot;hes cheating&quot; or whatever is just annoying for everyone in the team
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            There is no problem with not being able to win duels if you face more skilled opponents but dont just throw your life away, instead try to get a trade or buy time for the team
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/199182952524021761/22715817950867bbc1e3a8ab1ce9f962.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Worzel#0001">Worzel</span>
+                <span class="chatlog__timestamp">10-Feb-19 02:52 AM</span>
+
+                        <div class="chatlog__content">
+                            Gonna be real, barley anyone here knows how to play, never mind as a team. Comms are always awful
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            “Where’d you get the entry”
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            <i>repeate 5 times</i>
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            <i>still no answer</i>
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            <img class="emoji emoji--large" title=":FeelsBadMan:" src="https://cdn.discordapp.com/emojis/316991208339800064.png" />
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/203203384461754368/23ca7261ed2840a24f8308ac16d90fea.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="SyKo-#1337">SyKo-</span>
+                <span class="chatlog__timestamp">10-Feb-19 03:17 AM</span>
+
+                        <div class="chatlog__content">
+                            If there&#39;s anything I learned from the last 1.5 years I&#39;ve been in C50 it&#39;s that low ranks can&#39;t play with higher ranks cause there&#39;ll always be issues
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/214530322363056128/5f2d0e18e6578e4e032ebbf19f36942e.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Banjo#7592">Banjo</span>
+                <span class="chatlog__timestamp">10-Feb-19 09:57 AM</span>
+
+                        <div class="chatlog__content">
+                            yo, thanks for the text bois. i feel awful for being inactive in CS/C50, but one thing i can agree on is that you never stop learning CS... even the smallest things like the animation cancel for throwing grenades or knowing that you never crouch peek to the left because your character model gets wider on the left side when crouching is gonna make huge differences in the long run. dont really know what im trying to say here honestly
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/214530322363056128/5f2d0e18e6578e4e032ebbf19f36942e.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="Banjo#7592">Banjo</span>
+                <span class="chatlog__timestamp">10-Feb-19 10:00 AM</span>
+
+                        <div class="chatlog__content">
+                            also doesnt matter how good we are, being able to play off of each other is key i think, would be alot of fun to revive50
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/232855438335541251/fca7f6ac33b790d7ce591fbbea674511.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="eRa#9550">eRa</span>
+                <span class="chatlog__timestamp">10-Feb-19 04:14 PM</span>
+
+                        <div class="chatlog__content">
+                            this wouldnt have happened with <span class="mention" title="haber#8664">@haber</span> on board btw
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/256128519858290699/c65a807b7879304ffd4e9396d9fb6ef9.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="haber#8664">haber</span>
+                <span class="chatlog__timestamp">10-Feb-19 04:24 PM</span>
+
+                        <div class="chatlog__content">
+                            gake news
+
+                        </div>
+
+
+
+                        <div class="chatlog__content">
+                            fake news
+
+                        </div>
+
+
+
+            </div>
+        </div>
+        <div class="chatlog__message-group">
+            <div class="chatlog__author-avatar-container">
+                <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/115204763913551876/8d3943a5a0e2ffd37331591eb9a29172.png" />
+            </div>            
+            <div class="chatlog__messages">
+                <span class="chatlog__author-name" title="y2#9438">y2</span>
+                <span class="chatlog__timestamp">10-Feb-19 05:21 PM</span>
+
+                        <div class="chatlog__content">
+                            Gawker news
+
+                        </div>
+
+
+
+            </div>
+        </div>
+</div>
+
+</body>
+</html>
